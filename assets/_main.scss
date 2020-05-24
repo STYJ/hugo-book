@@ -115,6 +115,9 @@ ul.pagination {
 
   a.active {
     color: $color-link;
+    &::after{
+      transform: rotate(90deg);
+    }
   }
 
   a.collapsed {
