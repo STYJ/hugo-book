@@ -90,10 +90,14 @@ ul.pagination {
   margin-top: 0;
 
   img {
-    height: 1.5em;
+    height: 2em;
     width: auto;
     vertical-align: middle;
     margin-inline-end: $padding-8;
+  }
+  a {
+    display: flex;
+    align-items: center;
   }
 }
 
