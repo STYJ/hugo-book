@@ -72,6 +72,15 @@
 {{ end }}
 
 {{ define "main" }}
+  {{ $path := after 1 (split .File.Dir "/") }}
+  {{ if gt (len $path) 1 }}
+    <p>
+      {{ $path := apply $path "humanize" "." }}
+      {{ delimit $path " » " "" }}
+    </p>
+    <hr>
+    <br>
+  {{ end }}
   <article class="markdown">
     {{- .Content -}}
   </article>
