@@ -72,20 +72,25 @@
 {{ end }}
 
 {{ define "main" }}
+  {{ template "path" . }}
+  <article class="markdown">
+    {{- .Content -}}
+  </article>
+{{ end }}
+
+{{ define "path" }}
   {{ with .File }}
-    {{ $path := after 1 (split .Dir "/") }}
-    {{ if gt (len $path) 1 }}
+    {{ $path := after 1 (split (strings.TrimRight "/" .Dir) "/") }}
+    {{ if gt (len $path) 0 }}
       <p>
         {{ $path := apply $path "humanize" "." }}
-        {{ delimit $path " » " "" }}
+        {{ $path := apply $path "title" "." }}
+        {{ delimit $path " » " }}
       </p>
       <hr>
       <br>
     {{ end }}
   {{ end }}
-  <article class="markdown">
-    {{- .Content -}}
-  </article>
 {{ end }}
 
 {{ define "toc" }}
