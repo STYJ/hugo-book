@@ -27,12 +27,16 @@ body {
   }
 }
 
-h1,
+h1 {
+  font-weight: $body-font-weight;
+}
+
 h2,
 h3,
 h4,
 h5 {
   font-weight: $body-font-weight;
+  text-decoration: underline;
 }
 
 a {
